@@ -1,0 +1,32 @@
+﻿@model Cartype;
+@{
+    ViewData["Title"] = "ฟอร์มบันทึกรถ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="text-center">แบบฟอร์มบันทึกรถ</h1>
+<form method="post" asp-controller="Cartype" asp-action="Create">
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input type="text" asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Type"></label>
+        <div class="input-group mb-3">
+            <label class="input-group-text" for="inputGroupSelect01">ประเภทรถ</label>
+            <select asp-for="Type" class="form-select" id="inputGroupSelect01">
+                <option selected>เลือก...</option>
+                <option value="Car">รถเก๋ง</option>
+                <option value="Truck">รถกระบะ</option>
+                <option value="Van">รถตู้</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="Seat"></label>
+        <input type="number" asp-for="Seat" class="form-control" />
+        <span asp-validation-for="Seat" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary my-2">บันทึก</button>
+</form>
